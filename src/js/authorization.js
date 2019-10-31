@@ -7,12 +7,7 @@ export default class Authorisation {
     this.input = document.querySelectorAll('input');
     this.form = document.querySelector('.submit_form');
     this.title = document.querySelector('title');
-    const getData = this.getuserAuthData;
-    console.log(getData === getData);
-    this.form.addEventListener('submit', getData);
-    if (this.form === null) {
-      this.form.removeEventListener('submit', getData);
-    }
+    this.form.addEventListener('submit', event => this.getuserAuthData(event));
   }
 
   getuserAuthData(event) {
@@ -24,7 +19,6 @@ export default class Authorisation {
     });
 
     this.postUserAuthData(userAuthData);
-    this.redirectToDashboard();
   }
 
   postUserAuthData(data) {
@@ -37,13 +31,5 @@ export default class Authorisation {
         );
       })
       .catch(error => console.log(error));
-  }
-
-  redirectToDashboard() {
-    if (this.userToken) {
-      history.pushState(null, null, 'dashboard.html');
-      location.reload();
-    }
-    //this.form.removeEventListener('submit', this.getuserAuthData);
   }
 }

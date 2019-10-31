@@ -8,3 +8,39 @@ h1 {
   color: white;
   text-align: center;
 }
+
+.submit_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__input {
+    padding: 8px 30px;
+    margin-top: 8px;
+    border: none;
+    background-color: lightcyan;
+    border-radius: 3px;
+  }
+
+  &__btn {
+    padding: 8px 90px;
+    margin-top: 8px;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    background-color: #ffbacb;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+table {
+  border: 1px solid #ccc;
+  border-spacing: 3px;
+  margin: 0 auto;
+}
+
+td, th{
+  border: solid 1px #ccc;
+ }
+ 
+ td:nth-child(1n+3){text-align: center;}

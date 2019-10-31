@@ -5,17 +5,16 @@ import Users from './users';
 (async () => {
   const auth = new Authorisation();
   const promiseAuth = await auth;
-  console.log(promiseAuth);
-
+  if (
+    promiseAuth.token === null &&
+    window.location.pathname.includes('dashboard')
+  ) {
+    history.pushState(null, null, 'index.html');
+    document.location.reload(true);
+  }
   if (promiseAuth.token !== null) {
     new Users();
-    console.log( new Users());
   }
-
-  // if (promiseAuth.token === null) {
-  //   history.pushState(null, null, '/');
-  //   // location.reload();
-  // }
 })();
 
 // // administrator@sdkfinance.app
